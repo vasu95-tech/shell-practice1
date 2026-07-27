@@ -7,9 +7,10 @@ N="\e[0m"
 
 #LOG_FILE="$LOG_FOLDER/$(echo "$0 | cut -d "." -f1").log"
 LOG_FOLDER="/var/log/shell-script"
+mkdir -p $LOG_FOLDER
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
-mkdir -p $LOG_FOLDER
+
 
 
 USER_ID=$(id -u)
