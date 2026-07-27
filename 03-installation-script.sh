@@ -30,4 +30,13 @@ if [ $? -eq 0 ]; then
 fi    
 
 
+dnf list installed python3
+if [ $? -eq 0 ]; then 
+    echo -e "python3 is already installed $Y skipping $N"
+    exit 1
+    else 
+    dnf install python3 -y 
+    validate $? python3
+fi    
+
 
