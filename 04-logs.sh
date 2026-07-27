@@ -7,18 +7,20 @@ N="\e[0m"
 
 #LOG_FILE="$LOG_FOLDER/$(echo "$0 | cut -d "." -f1").log"
 LOG_FOLDER="/var/log/shell-scripting"
-mkdir -p $LOG_FOLDER
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
+mkdir -p $LOG_FOLDER
 
 
 USER_ID=$(id -u)
 if [ USER_ID -ne 0 ]; then
     echo -e "$R error $N run the script with root user"
+    exit 1
 fi
 validate(){
     if [ $1 -ne 0 ]; then
      echo -e "installing $2 is $R failure $N" | tee -a $LOG_FILE
+     exit 1
     else
      echo -e "installing $2 is $G success $N" | tee -a $LOG_FILE
     fi
