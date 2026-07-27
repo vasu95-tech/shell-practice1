@@ -3,6 +3,7 @@
 USER_ID=$(id -u)
 if [ $USER_ID -ne 0 ]; then
     echo "run the script with root privilage"
+    exit 0
 fi
 
 dnf install nginx -y
