@@ -20,8 +20,8 @@ validate(){
     fi
 }
 
-dnf list installed $2
-if [ $1 -eq 0]; then 
+dnf list installed mginx
+if [ $? -eq 0]; then 
     echo -e "$2 is already installed $Y skipping $N"
     exit 1
 fi    
