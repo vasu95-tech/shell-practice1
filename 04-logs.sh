@@ -13,7 +13,7 @@ mkdir -p $LOG_FOLDER
 
 
 USER_ID=$(id -u)
-if [ USER_ID -ne 0 ]; then
+if [ $USER_ID -ne 0 ]; then
     echo -e "$R error $N run the script with root user"
     exit 1
 fi
