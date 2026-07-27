@@ -21,12 +21,13 @@ validate(){
 }
 
 dnf list installed nginx
-if [ $1 -eq 0 ]; then 
-    echo -e "$2 is already installed $Y skipping $N"
+if [ $? -eq 0 ]; then 
+    echo -e "nginx is already installed $Y skipping $N"
     exit 1
+    else 
+    dnf install nginx -y 
+    validate $? nginx
 fi    
-dnf install nginx -y
-validate $? nginx
 
 
 
